@@ -20,6 +20,8 @@ public class PlayerMovement : MonoBehaviour
 
 
     public float runSpeed = 20f;
+    public float jumpRate = 1.0f;
+    public float nextJump = 1.0f;
 
     public bool jump = false;
     public bool crouch = false;
@@ -32,6 +34,9 @@ public class PlayerMovement : MonoBehaviour
         collide.size = standingSize;
 
         sR = GetComponent<SpriteRenderer>();
+        sR.sprite = standing;
+
+        standingSize = collide.size;
     }
 
     // Update is called once per frame
@@ -43,15 +48,20 @@ public class PlayerMovement : MonoBehaviour
         {
             rb.AddForce(new Vector2(0, 10), ForceMode2D.Impulse);
             jump = true;
+
         }
 
-        if (Input.GetButtonDown("Crouch"))
+        if (Input.GetKeyDown(KeyCode.LeftShift))
         {
-           // crouch = true;
+            sR.sprite = crouching;
+            sR.flipX = false;
+            collide.size = crouchingSize;
         }
-        else if (Input.GetButtonUp("Crouch"))
+        else if (Input.GetKeyUp(KeyCode.LeftShift))
         {
-            crouch = false;
+            sR.sprite = standing;
+            sR.flipX = true;
+            collide.size = standingSize;
         }
  
     }
@@ -61,5 +71,7 @@ public class PlayerMovement : MonoBehaviour
         controller.Move(horizontalInput * Time.fixedDeltaTime, false, false);
         jump = false;
     }
-    
+
+ 
+
 }
