@@ -7,7 +7,14 @@ public class MenuManager : MonoBehaviour
     public void StartGame()
     {
 
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        SceneManager.LoadScene(1);
+
+    }
+
+    public void controlScene()
+    {
+
+        SceneManager.LoadScene(2);
 
     }
 
@@ -15,6 +22,11 @@ public class MenuManager : MonoBehaviour
     {
         Debug.Log("Game Exited");
         Application.Quit();
+    }
+
+    public void MainMenu()
+    {
+        SceneManager.LoadScene(0);
     }
 
 
