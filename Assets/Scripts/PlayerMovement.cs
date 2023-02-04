@@ -9,12 +9,30 @@ public class PlayerMovement : MonoBehaviour
     public Rigidbody2D rb;
     public SpriteRenderer sR;
 
+    public Sprite standing;
+    public Sprite crouching;
+
+    public BoxCollider2D collide;
+
+    public Vector2 standingSize;
+    public Vector2 crouchingSize;
+
+
+
     public float runSpeed = 20f;
 
     public bool jump = false;
     public bool crouch = false;
     float horizontalInput = 0f;
 
+    void Start()
+    {
+        rb = GetComponent<Rigidbody2D>();
+        collide = GetComponent<BoxCollider2D>();
+        collide.size = standingSize;
+
+        sR = GetComponent<SpriteRenderer>();
+    }
 
     // Update is called once per frame
     void Update()
