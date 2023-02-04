@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Security.Cryptography;
 using System.Threading;
 using UnityEngine;
 
@@ -13,6 +14,9 @@ public class CharacterController : MonoBehaviour
     private bool jumped = false;
     private bool isGrounded = false;
 
+    int jumpCount = 0;
+    int maxJumps = 1;
+
     private float horizontalInput;
     private Rigidbody rb;
 
@@ -21,7 +25,7 @@ public class CharacterController : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-
+        jumpCount = maxJumps;
     }
 
     private void FixedUpdate()
@@ -46,14 +50,27 @@ public class CharacterController : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            rb.AddForce(Vector2.up * jumpForce, ForceMode.Impulse);
-            jumped = true;
+            if (jumpCount > 0)
+            {
+                Jump();
+            }
+            //rb.AddForce(Vector2.up * jumpForce, ForceMode.Impulse);
+            //jumped = true;
         }
        
     }
 
-    void OnCollisionStay()
+    public void Jump()
     {
-        isGrounded = true;
+        rb.velocity = transform.up * 10;
+        jumpCount -= 1;
+    }
+
+    void OnCollisionEnter(Collision Coll)
+    {
+        if(Collision.gameObject.tag == "ground")
+        {
+            jumpCount = maxJumps;
+        }
     }
 }
