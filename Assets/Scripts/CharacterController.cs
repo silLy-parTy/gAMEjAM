@@ -10,7 +10,7 @@ public class CharacterController : MonoBehaviour
     // Declare Variables
     [SerializeField]
     private float speed = 20f;
-    private float jumpForce = 10f;
+    //private float jumpForce = 10f;
     private bool jumped = false;
     private bool isGrounded = false;
 
@@ -18,13 +18,12 @@ public class CharacterController : MonoBehaviour
     int maxJumps = 1;
 
     private float horizontalInput;
-    private Rigidbody rb;
-
+    private Rigidbody2D rb;
 
     // Start is called before the first frame update
     void Start()
     {
-        rb = GetComponent<Rigidbody>();
+        rb = GetComponent<Rigidbody2D>();
         jumpCount = maxJumps;
     }
 
@@ -37,7 +36,6 @@ public class CharacterController : MonoBehaviour
 
         if (jumped && isGrounded)
         {
-            rb.AddForce(Vector3.up * jumpForce, ForceMode.VelocityChange);
             jumped = false;
             isGrounded = false;
         }
@@ -66,11 +64,5 @@ public class CharacterController : MonoBehaviour
         jumpCount -= 1;
     }
 
-    void OnCollisionEnter(Collision Coll)
-    {
-        if(Collision.gameObject.tag == "ground")
-        {
-            jumpCount = maxJumps;
-        }
-    }
+
 }
