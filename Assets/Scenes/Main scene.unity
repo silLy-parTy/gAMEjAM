@@ -385,7 +385,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.003782485, g: 0.064680494, b: 0.16037738, a: 0}
+  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -1419,19 +1419,11 @@ MonoBehaviour:
   controller: {fileID: 2139650857}
   rb: {fileID: 2139650855}
   sR: {fileID: 0}
-<<<<<<< Updated upstream
   standing: {fileID: 21300000, guid: bab617d8996fb044ea1e0a14b8338434, type: 3}
   crouching: {fileID: -239999703, guid: ab7794ad3d224a54aa05cd98a9fa8aef, type: 3}
   collide: {fileID: 0}
   standingSize: {x: 0, y: 0}
   crouchingSize: {x: 0, y: 0.5}
-=======
-  standing: {fileID: 0}
-  crouching: {fileID: 0}
-  collide: {fileID: 0}
-  standingSize: {x: 0, y: 0}
-  crouchingSize: {x: 0, y: 0}
->>>>>>> Stashed changes
   runSpeed: 20
   jumpRate: 1
   nextJump: 1
