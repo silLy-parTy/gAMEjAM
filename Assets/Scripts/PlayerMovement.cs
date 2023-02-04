@@ -7,7 +7,7 @@ public class PlayerMovement : MonoBehaviour
     //Declare Variables
     public CharacterController2D controller;
 
-    public float runSpeed = 200f;
+    public float runSpeed = 20f;
 
     float horizontalInput = 0f;
     
@@ -26,6 +26,6 @@ public class PlayerMovement : MonoBehaviour
 
     void FixedUpdate()
     {
-        //controller.Move(horizontalInput);
+        controller.Move(horizontalInput, false, false);
     }
 }
