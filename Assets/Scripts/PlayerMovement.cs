@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     //Declare Variables
-    public CharacterController2D controller;
+   // public CharacterController2D controller;
     public Rigidbody2D rb;
 
     public Animator animator;
@@ -22,12 +22,14 @@ public class PlayerMovement : MonoBehaviour
 
 
 
-    private float runSpeed = 20f;
-    private float jumpRate = 0.5f;
-    private float nextJump = 0.5f;
+    public float runSpeed;
+    public float jump;
 
-    public bool jump = false;
-    public bool crouch = false;
+    public bool isJumping;
+    //private float nextJump = 0.5f;
+
+   // public bool jump = false;
+  //  public bool crouch = false;
     float horizontalInput = 0f;
 
     void Start()
@@ -46,21 +48,14 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         horizontalInput = Input.GetAxisRaw("Horizontal") * runSpeed;
+        rb.velocity = new Vector2(runSpeed * horizontalInput, rb.velocity.y);
 
         animator.SetFloat("Speed", Mathf.Abs(horizontalInput));
 
-        if (Input.GetButtonDown("Jump") && Time.time > nextJump)
+        if (Input.GetButtonDown("Jump") && isJumping == false)
         {
-            rb.AddForce(new Vector2(0, 10), ForceMode2D.Impulse);
-            nextJump = Time.time + jumpRate;
-            jump = true;
+            rb.AddForce(new Vector2(rb.velocity.x, jump));
             animator.SetBool("IsJumping", true);
-
-        }
-        else if (Input.GetButtonUp("Jump"))
-        {
-            animator.SetBool("IsJumping", false);
-
         }
 
         if (Input.GetKeyDown(KeyCode.LeftShift))
@@ -78,21 +73,22 @@ public class PlayerMovement : MonoBehaviour
  
     }
 
-    void OnCollisionEnter(Collision collision)
+    void OnCollisionEnter2D(Collision other)
     {
-        if (collision.gameObject.tag == "Ground")
+        if (other.gameObject.CompareTag("Ground"))
         {
+            isJumping = false;
             animator.SetBool("IsJumping", false);
 
         }
     }
 
-    void FixedUpdate()
+    private void OnCollisionExit2D(Collision2D other)
     {
-        controller.Move(horizontalInput * Time.fixedDeltaTime, false, false);
-        jump = false;
+        if (other.gameObject.CompareTag("Ground"))
+        {
+            isJumping = true;
+        }
     }
-
- 
 
 }
