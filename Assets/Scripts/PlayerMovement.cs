@@ -9,6 +9,8 @@ public class PlayerMovement : MonoBehaviour
 
     public float runSpeed = 20f;
 
+    bool jump = false;
+    bool crouch = false;
     float horizontalInput = 0f;
     
     
@@ -22,10 +24,26 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         horizontalInput = Input.GetAxisRaw("Horizontal") * runSpeed;
+
+        if (Input.GetButtonDown("Jump"))
+        {
+            jump = true;
+        }
+
+        if (Input.GetButtonDown("Crouch"))
+        {
+            crouch = true;
+        }
+        else if (Input.GetButtonUp("Crouch"))
+        {
+            crouch = false;
+        }
     }
 
     void FixedUpdate()
     {
-        controller.Move(horizontalInput, false, false);
+        controller.Move(horizontalInput, crouch, jump);
+        jump = false;
     }
+    
 }
