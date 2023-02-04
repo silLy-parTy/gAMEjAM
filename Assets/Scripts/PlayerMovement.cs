@@ -7,12 +7,15 @@ public class PlayerMovement : MonoBehaviour
     //Declare Variables
     public CharacterController2D controller;
     public Rigidbody2D rb;
-    public SpriteRenderer sR;
 
+    public Animator animator;
+
+    public SpriteRenderer sR;
     public Sprite standing;
     public Sprite crouching;
 
     public BoxCollider2D collide;
+    public CircleCollider2D circleCollide;
 
     public Vector2 standingSize;
     public Vector2 crouchingSize;
@@ -44,27 +47,44 @@ public class PlayerMovement : MonoBehaviour
     {
         horizontalInput = Input.GetAxisRaw("Horizontal") * runSpeed;
 
+        animator.SetFloat("Speed", Mathf.Abs(horizontalInput));
+
         if (Input.GetButtonDown("Jump") && Time.time > nextJump)
         {
             rb.AddForce(new Vector2(0, 10), ForceMode2D.Impulse);
             nextJump = Time.time + jumpRate;
             jump = true;
+            animator.SetBool("IsJumping", true);
+
+        }
+        else if (Input.GetButtonUp("Jump"))
+        {
+            animator.SetBool("IsJumping", false);
 
         }
 
         if (Input.GetKeyDown(KeyCode.LeftShift))
         {
             sR.sprite = crouching;
-            sR.flipX = false;
             collide.size = crouchingSize;
+            animator.SetBool("IsCrouching", true);
         }
         else if (Input.GetKeyUp(KeyCode.LeftShift))
         {
             sR.sprite = standing;
-            sR.flipX = true;
             collide.size = standingSize;
+            animator.SetBool("IsCrouching", false);
         }
  
+    }
+
+    void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "Ground")
+        {
+            animator.SetBool("IsJumping", false);
+
+        }
     }
 
     void FixedUpdate()
