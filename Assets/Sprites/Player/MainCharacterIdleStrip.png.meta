@@ -121,8 +121,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 343003b0494d41b4b82402aa1c34e394
-      internalID: -279289619
+      spriteID: 11d7801afbe64e742b4a3f8ab7bc59e7
+      internalID: -2053355949
       vertices: []
       indices: 
       edges: []
@@ -142,8 +142,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c58d78f67b8d37a4db9437aa0c0da13f
-      internalID: 12178746
+      spriteID: 0e86cc4d7952dae41a74b9b9a32b7ae5
+      internalID: 1193294744
       vertices: []
       indices: 
       edges: []
@@ -159,8 +159,8 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      MainCharacterIdleStrip_1: 12178746
-      MainCharacterIdleStrip_0: -279289619
+      MainCharacterIdleStrip_1: 1193294744
+      MainCharacterIdleStrip_0: -2053355949
   spritePackingTag: 
   pSDRemoveMatte: 0
   userData: 

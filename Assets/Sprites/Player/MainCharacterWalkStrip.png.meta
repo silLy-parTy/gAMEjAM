@@ -121,8 +121,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b365d981fd5d6dc4bb16dc701fbe8c58
-      internalID: 573729454
+      spriteID: d78c50e098bb09749972dc90a86a0bd8
+      internalID: 1449347071
       vertices: []
       indices: 
       edges: []
@@ -142,8 +142,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3404bd6aac274834a90bb5b7930e7b9c
-      internalID: -2137682290
+      spriteID: 26467e01e514fb54db7250a26414696e
+      internalID: 1872839955
       vertices: []
       indices: 
       edges: []
@@ -163,8 +163,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 11fa06385849c5a43aee675fa72c7e64
-      internalID: -538626971
+      spriteID: d16b4b7861a4c994b9a274c0f9e938a2
+      internalID: 83537991
       vertices: []
       indices: 
       edges: []
@@ -184,8 +184,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1057f62cebac59e4cb4b433bbd99435e
-      internalID: 1847335412
+      spriteID: ec73ec83e7437bf4da8f4de3a574617b
+      internalID: -161041189
       vertices: []
       indices: 
       edges: []
@@ -201,10 +201,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      MainCharacterWalkStrip_0: 573729454
-      MainCharacterWalkStrip_1: -2137682290
-      MainCharacterWalkStrip_3: 1847335412
-      MainCharacterWalkStrip_2: -538626971
+      MainCharacterWalkStrip_0: 1449347071
+      MainCharacterWalkStrip_1: 1872839955
+      MainCharacterWalkStrip_3: -161041189
+      MainCharacterWalkStrip_2: 83537991
   spritePackingTag: 
   pSDRemoveMatte: 0
   userData: 

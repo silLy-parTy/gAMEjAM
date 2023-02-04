@@ -121,8 +121,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5f4e382152b86c64d8a69ff15da02dda
-      internalID: -869595680
+      spriteID: c29863e2478e81e43b6ab55a1416cd29
+      internalID: -981816674
       vertices: []
       indices: 
       edges: []
@@ -142,8 +142,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 77685b0835ba8dc43971bf7388ec0b2a
-      internalID: -1250202777
+      spriteID: 6d9938728ebe6754aa370d163c8b45c2
+      internalID: 375403719
       vertices: []
       indices: 
       edges: []
@@ -163,8 +163,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5402d0acf8c3a1d4eb9c8bb56f779bf6
-      internalID: 1802084126
+      spriteID: 9d67e2083c1294149a2b4a17ccbd060f
+      internalID: -209383753
       vertices: []
       indices: 
       edges: []
@@ -184,8 +184,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a9212eb4422baf5468dc53a26c8683ce
-      internalID: 1561920094
+      spriteID: 50d65c0914a3cbe499e2ede44a3a72b1
+      internalID: -1612212383
       vertices: []
       indices: 
       edges: []
@@ -201,10 +201,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      MainCharacterJumpStrip_1: -1250202777
-      MainCharacterJumpStrip_3: 1561920094
-      MainCharacterJumpStrip_2: 1802084126
-      MainCharacterJumpStrip_0: -869595680
+      MainCharacterJumpStrip_1: 375403719
+      MainCharacterJumpStrip_3: -1612212383
+      MainCharacterJumpStrip_2: -209383753
+      MainCharacterJumpStrip_0: -981816674
   spritePackingTag: 
   pSDRemoveMatte: 0
   userData: 

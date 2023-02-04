@@ -19,9 +19,9 @@ public class PlayerMovement : MonoBehaviour
 
 
 
-    public float runSpeed = 20f;
-    public float jumpRate = 1.0f;
-    public float nextJump = 1.0f;
+    private float runSpeed = 20f;
+    private float jumpRate = 0.5f;
+    private float nextJump = 0.5f;
 
     public bool jump = false;
     public bool crouch = false;
@@ -44,9 +44,10 @@ public class PlayerMovement : MonoBehaviour
     {
         horizontalInput = Input.GetAxisRaw("Horizontal") * runSpeed;
 
-        if (Input.GetButtonDown("Jump"))
+        if (Input.GetButtonDown("Jump") && Time.time > nextJump)
         {
             rb.AddForce(new Vector2(0, 10), ForceMode2D.Impulse);
+            nextJump = Time.time + jumpRate;
             jump = true;
 
         }

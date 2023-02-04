@@ -1237,6 +1237,7 @@ GameObject:
   - component: {fileID: 2139650855}
   - component: {fileID: 2139650857}
   - component: {fileID: 2139650859}
+  - component: {fileID: 2139650860}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -1290,7 +1291,7 @@ SpriteRenderer:
   m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.16, y: 0.16}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -1352,7 +1353,7 @@ BoxCollider2D:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 1.6, y: 1.6}
-    newSize: {x: 1, y: 1}
+    newSize: {x: 0.16, y: 0.16}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -1420,12 +1421,29 @@ MonoBehaviour:
   rb: {fileID: 2139650855}
   sR: {fileID: 0}
   standing: {fileID: 21300000, guid: bab617d8996fb044ea1e0a14b8338434, type: 3}
-  crouching: {fileID: -239999703, guid: ab7794ad3d224a54aa05cd98a9fa8aef, type: 3}
+  crouching: {fileID: -782527386, guid: ab7794ad3d224a54aa05cd98a9fa8aef, type: 3}
   collide: {fileID: 0}
   standingSize: {x: 0, y: 0}
   crouchingSize: {x: 0, y: 0.5}
-  runSpeed: 20
-  jumpRate: 1
-  nextJump: 1
   jump: 0
   crouch: 0
+--- !u!95 &2139650860
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2139650851}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: c9d5e46d37618af45a53d41b055b7db4, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
