@@ -10,6 +10,8 @@ public class CharacterController : MonoBehaviour
     [SerializeField]
     private float speed = 20f;
     private float jumpForce = 10f;
+    private bool jumped = false;
+    private bool isGrounded = false;
 
     private float horizontalInput;
     private Rigidbody rb;
@@ -29,6 +31,12 @@ public class CharacterController : MonoBehaviour
         float horizontalMovement = horizontalInput * speed * Time.deltaTime;
         rb.velocity = new Vector2(horizontalMovement, rb.velocity.y);
 
+        if (jumped && isGrounded)
+        {
+            rb.AddForce(Vector3.up * jumpForce, ForceMode.VelocityChange);
+            jumped = false;
+            isGrounded = false;
+        }
     }
 
     // Update is called once per frame
@@ -39,6 +47,13 @@ public class CharacterController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {
             rb.AddForce(Vector2.up * jumpForce, ForceMode.Impulse);
+            jumped = true;
         }
+       
+    }
+
+    void OnCollisionStay()
+    {
+        isGrounded = true;
     }
 }
