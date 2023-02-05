@@ -5,7 +5,7 @@ using UnityEngine;
 public class ParallaxEffect : MonoBehaviour
 {
 
-    private float length, startpos;
+    private float length, startposX, startposY;
     public float parallaxFactor;
     public GameObject cam;
     
@@ -13,7 +13,8 @@ public class ParallaxEffect : MonoBehaviour
     void Start()
     {
 
-        startpos = transform.position.x;
+        startposY = transform.position.y;
+        startposX = transform.position.x;
         length = GetComponent<SpriteRenderer>().bounds.size.x;
 
     }
@@ -25,12 +26,12 @@ public class ParallaxEffect : MonoBehaviour
         float temp = cam.transform.position.x * (1 - parallaxFactor);
         float distance = cam.transform.position.x * parallaxFactor;
 
-        Vector3 newPosition = new Vector3(startpos + distance, transform.position.y, transform.position.z);
+        Vector3 newPosition = new Vector3(startposX + distance, startposY, transform.position.z);
 
         transform.position = newPosition;
 
-        if (temp > startpos + (length)) startpos += length;
-        else if (temp < startpos - (length)) startpos -= length;
+        if (temp > startposX + (length)) startposX += length;
+        else if (temp < startposX - (length)) startposX -= length;
 
     }
 }

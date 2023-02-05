@@ -8,6 +8,8 @@ public class Health : MonoBehaviour
     public int maxHealth = 3;
     public int currenthealth;
 
+    public HealthBar healthBar;
+
     public Animator anim;
 
     [SerializeField] private float iFramesDuration;
@@ -19,6 +21,7 @@ public class Health : MonoBehaviour
     {
         
         currenthealth = maxHealth;
+        healthBar.SetMaxHealth(maxHealth);
         spriteRenderer = GetComponent<SpriteRenderer>();
 
     }
@@ -28,6 +31,8 @@ public class Health : MonoBehaviour
 
         currenthealth--;
         anim.SetBool("Damaged", true);
+
+        healthBar.SetHealth(currenthealth);
 
         StartCoroutine(Invulnerability());
 
