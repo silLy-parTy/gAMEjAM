@@ -133,7 +133,7 @@ GameObject:
   m_Component:
   - component: {fileID: 40778725}
   - component: {fileID: 40778726}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: Background (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -220,7 +220,7 @@ GameObject:
   - component: {fileID: 75524066}
   - component: {fileID: 75524068}
   - component: {fileID: 75524067}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -334,7 +334,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 338139538}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: GroundCheck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -368,7 +368,7 @@ GameObject:
   - component: {fileID: 519420031}
   - component: {fileID: 519420029}
   - component: {fileID: 519420033}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: Main Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -465,7 +465,7 @@ GameObject:
   m_Component:
   - component: {fileID: 554218408}
   - component: {fileID: 554218409}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: Midground (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -636,7 +636,7 @@ GameObject:
   m_Component:
   - component: {fileID: 604618451}
   - component: {fileID: 604618452}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: Midground (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -720,7 +720,7 @@ GameObject:
   m_Component:
   - component: {fileID: 639211090}
   - component: {fileID: 639211092}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: Foreground (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38340,7 +38340,7 @@ GameObject:
   - component: {fileID: 1313349407}
   - component: {fileID: 1313349406}
   - component: {fileID: 1313349408}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: Midground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38461,7 +38461,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1468997816}
   - component: {fileID: 1468997815}
-  m_Layer: 3
+  m_Layer: 11
   m_Name: Temp EnemyGFX
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38508,7 +38508,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 5
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
   m_Color: {r: 1, g: 0, b: 0, a: 1}
   m_FlipX: 0
@@ -38544,7 +38544,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1707522266}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38579,7 +38579,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1713318156}
   - component: {fileID: 1713318157}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: Background (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38665,7 +38665,7 @@ GameObject:
   - component: {fileID: 1803090520}
   - component: {fileID: 1803090519}
   - component: {fileID: 1803090521}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38872,7 +38872,7 @@ GameObject:
   - component: {fileID: 1979429025}
   - component: {fileID: 1979429024}
   - component: {fileID: 1979429026}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: Foreground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38993,7 +38993,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2007913802}
   - component: {fileID: 2007913804}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: Foreground (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -39081,7 +39081,7 @@ GameObject:
   - component: {fileID: 2139650860}
   - component: {fileID: 2139650861}
   - component: {fileID: 2139650862}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
