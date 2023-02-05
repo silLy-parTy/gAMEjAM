@@ -11,7 +11,7 @@ public class PlantingTree : MonoBehaviour
     {
 
         Debug.Log("Tree Planted");
-        anim.SetBool("Plant Seed", true)
+        anim.SetBool("Plant Seed", true);
 
 
     }
