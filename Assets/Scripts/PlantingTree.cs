@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlantingTree : MonoBehaviour
 {
@@ -11,8 +12,15 @@ public class PlantingTree : MonoBehaviour
     {
 
         Debug.Log("Tree Planted");
-        anim.SetBool("Plant Seed", true);
+        anim.SetBool("IsPlanted", true);
+        anim.SetBool("IsGrowing", true);
 
+    }
+
+    public void winScreen()
+    {
+
+        SceneManager.LoadScene(3);
 
     }
 
