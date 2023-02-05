@@ -4,12 +4,15 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    private Animator anim;
+    public Animator anim;
+    public GameObject playerObject;
+    public BoxCollider2D boxCollide;
 
     private float horizontal;
     private bool isFacingRight = true;
     private float runSpeed = 10f;
-    private float jumpPower = 16f;
+    private float jumpPower = 12f;
+
 
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private Transform groundCheck;
@@ -37,6 +40,16 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetKeyUp(KeyCode.Space) && rb.velocity.y > 0f)
         {
             rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * 0.5f);
+        }
+
+        if (Input.GetKeyDown(KeyCode.LeftShift))
+        {
+            boxCollide.enabled = false;
+
+        }
+        else if (Input.GetKeyUp(KeyCode.LeftShift))
+        {
+            boxCollide.enabled = true;
         }
     }
 
