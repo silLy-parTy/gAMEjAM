@@ -4,86 +4,55 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public Animator anim;
-    public GameObject playerObject;
-    public BoxCollider2D boxCollide;
 
-    private float horizontal;
-    private bool isFacingRight = true;
-    private float runSpeed = 10f;
-    private float jumpPower = 12f;
+	public CharacterController2D controller;
+	public Animator animator;
 
+	public float runSpeed = 40f;
 
-    [SerializeField] private Rigidbody2D rb;
-    [SerializeField] private Transform groundCheck;
-    [SerializeField] private LayerMask groundLayer;
+	float horizontalMove = 0f;
+	bool jump = false;
+	bool crouch = false;
 
-    // Start is called before the first frame update
-    private void Start()
-    {
-        rb = gameObject.GetComponent<Rigidbody2D>();
+	// Update is called once per frame
+	void Update()
+	{
 
+		horizontalMove = Input.GetAxisRaw("Horizontal") * runSpeed;
 
-    }
+		animator.SetFloat("Speed", Mathf.Abs(horizontalMove));
 
-    private void Update()
-    {
-        horizontal = Input.GetAxisRaw("Horizontal");
+		if (Input.GetButtonDown("Jump"))
+		{
+			jump = true;
+			animator.SetBool("IsJumping", true);
+		}
 
-        if (Input.GetKeyDown(KeyCode.Space) && isGrounded())
-        {
-            rb.velocity = new Vector2(rb.velocity.x, jumpPower);
-        }
+		if (Input.GetButtonDown("Crouch"))
+		{
+			crouch = true;
+		}
+		else if (Input.GetButtonUp("Crouch"))
+		{
+			crouch = false;
+		}
 
-        Flip();
+	}
 
-        if (Input.GetKeyUp(KeyCode.Space) && rb.velocity.y > 0f)
-        {
-            rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * 0.5f);
-        }
+	public void OnLanding()
+	{
+		animator.SetBool("IsJumping", false);
+	}
 
-        if (Input.GetKeyDown(KeyCode.LeftShift))
-        {
-            boxCollide.enabled = false;
+	public void OnCrouching(bool isCrouching)
+	{
+		animator.SetBool("IsCrouching", isCrouching);
+	}
 
-        }
-        else if (Input.GetKeyUp(KeyCode.LeftShift))
-        {
-            boxCollide.enabled = true;
-        }
-    }
-
-    // Update is called once per frame
-    private void FixedUpdate()
-    {
-        /*
-                horizontal = Input.GetAxisRaw("Horizontal");
-
-                rb.velocity = new Vector2(dirX, rb.velocity.y) * runSpeed;
-
-                if (Input.GetKeyDown(KeyCode.Space))
-                {
-                    GetComponent<Rigidbody2D>().AddForce(jumpSpeed, ForceMode2D.Impulse);
-                }
-         */
-
-        rb.velocity = new Vector2(horizontal * runSpeed, rb.velocity.y);
-
-    }
-
-    private bool isGrounded()
-    {
-        return Physics2D.OverlapCircle(groundCheck.position, 0.2f, groundLayer);
-    }
-
-    private void Flip()
-    {
-        if (isFacingRight && horizontal < 0f || !isFacingRight && horizontal > 0f)
-        {
-            isFacingRight = !isFacingRight;
-            Vector3 localScale = transform.localScale;
-            localScale.x *= -1f;
-            transform.localScale = localScale;
-        }
-    }
+	void FixedUpdate()
+	{
+		// Move our character
+		controller.Move(horizontalMove * Time.fixedDeltaTime, crouch, jump);
+		jump = false;
+	}
 }
