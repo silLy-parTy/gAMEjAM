@@ -1,6 +1,7 @@
 using Pathfinding;
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 
 public class EnemyAI : MonoBehaviour
@@ -19,6 +20,8 @@ public class EnemyAI : MonoBehaviour
 
     Seeker seeker;
     Rigidbody2D rb;
+
+    public Health health;
 
 
     // Start is called before the first frame update
@@ -85,5 +88,19 @@ public class EnemyAI : MonoBehaviour
             enemyGFX.localScale = new Vector3(1f, 1f, 1f);
         }
 
+        
+
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.tag == "Player")
+        {
+            var health = collision.GetComponent<Health>();
+            if (health != null)
+            {
+                Debug.Log("-1 Health");
+                health.takeDamage();
+            }
+        }
     }
 }
