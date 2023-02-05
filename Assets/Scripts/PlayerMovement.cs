@@ -4,73 +4,31 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    private Animator anim;
 
-    private float horizontal;
-    private bool isFacingRight = true;
-    private float runSpeed = 10f;
-    private float jumpPower = 16f;
+    private Rigidbody2D rb;
 
-    [SerializeField] private Rigidbody2D rb;
-    [SerializeField] private Transform groundCheck;
-    [SerializeField] private LayerMask groundLayer;
+  
 
     // Start is called before the first frame update
     private void Start()
     {
-        rb = gameObject.GetComponent<Rigidbody2D>();
+        rb = GetComponent<Rigidbody2D>();
 
 
-    }
-
-    private void Update()
-    {
-        horizontal = Input.GetAxisRaw("Horizontal");
-
-        if (Input.GetKeyDown(KeyCode.Space) && isGrounded())
-        {
-            rb.velocity = new Vector2(rb.velocity.x, jumpPower);
-        }
-
-        Flip();
-
-        if (Input.GetKeyUp(KeyCode.Space) && rb.velocity.y > 0f)
-        {
-            rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * 0.5f);
-        }
     }
 
     // Update is called once per frame
-    private void FixedUpdate()
+    private void Update()
     {
-        /*
-                horizontal = Input.GetAxisRaw("Horizontal");
 
-                rb.velocity = new Vector2(dirX, rb.velocity.y) * runSpeed;
+        float dirX = Input.GetAxisRaw("Horizontal");
 
-                if (Input.GetKeyDown(KeyCode.Space))
-                {
-                    GetComponent<Rigidbody2D>().AddForce(jumpSpeed, ForceMode2D.Impulse);
-                }
-         */
+        rb.velocity = new Vector2(dirX * 7f, rb.velocity.y);
 
-        rb.velocity = new Vector2(horizontal * runSpeed, rb.velocity.y);
-
-    }
-
-    private bool isGrounded()
-    {
-        return Physics2D.OverlapCircle(groundCheck.position, 0.2f, groundLayer);
-    }
-
-    private void Flip()
-    {
-        if (isFacingRight && horizontal < 0f || !isFacingRight && horizontal > 0f)
+        if (Input.GetButtonDown("Jump"))
         {
-            isFacingRight = !isFacingRight;
-            Vector3 localScale = transform.localScale;
-            localScale.x *= -1f;
-            transform.localScale = localScale;
+            rb.velocity = new Vector2(rb.velocity.x, 11f);
         }
+
     }
 }
